@@ -93,12 +93,6 @@ define([
             )
             scene.add(this.buildingsLayer2);
 
-            // create home widget for scene view
-            var homeWidget = new Home({
-                view: view
-            });
-            view.ui.add(homeWidget, "top-left");
-
             var waterBodies = new FeatureLayer({
                 url: 'https://services9.arcgis.com/ZpmTCcECcEOnkrrK/arcgis/rest/services/Zurich_Water_Bodies/FeatureServer',
                 elevationInfo: {
