@@ -158,7 +158,7 @@ define([
                 this.timelineAnimation(1850);
 
                 // start timeline animation when user interacts with slider
-                softSlider.noUiSlider.on('change', function (values, handle) {
+                softSlider.noUiSlider.on('update', function (values, handle) {
                     this.timelineAnimation(parseInt(values[0]));
                 }.bind(this));
 
