@@ -1,9 +1,8 @@
-// Sample Application with ArcGIS API for JavaScript 4.5
+// Sample Application with ArcGIS API for JavaScript 4.13
 // Settlement development of the city of Zurich in 3D dynamically animated over time
 // Author: Lisa Staehli
-// Project: Cartography Lab 2017
-// Date: June-September 2017
-// Cartography Lab - ETH Zurich
+// Date: January 2020
+// Repo: https://github.com/lisastaehli/zurich-time-travel
 
 define([
     "esri/core/declare",
@@ -39,7 +38,11 @@ define([
 
         init: function () {
 
-            this.serviceURL = "https://services2.arcgis.com/cFEFS0EWrhfDeVw9/arcgis/rest/services/Zurich_Existing_Buildings_Year/SceneServer";
+            // Open Data Zurich
+            // 3D Buildings, construction year of buildings & water bodies
+            // All can be downloaded in the GIS Browser: https://maps.zh.ch/
+
+            this.serviceURL = "https://services2.arcgis.com/cFEFS0EWrhfDeVw9/arcgis/rest/services/Zurich_Existing_Buildings_Year/SceneServer"; // 3D buildings with construction year
             this.yearAttribute = "GBAUJ";
 
             // load a new web scene
@@ -94,7 +97,7 @@ define([
             scene.add(this.buildingsLayer2);
 
             var waterBodies = new FeatureLayer({
-                url: 'https://services9.arcgis.com/ZpmTCcECcEOnkrrK/arcgis/rest/services/Zurich_Water_Bodies/FeatureServer',
+                url: 'https://services9.arcgis.com/ZpmTCcECcEOnkrrK/arcgis/rest/services/Zurich_Water_Bodies/FeatureServer', // water bodies
                 elevationInfo: {
                     mode: 'on-the-ground',
                 },
