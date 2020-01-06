@@ -11,7 +11,6 @@ define([
     "esri/views/SceneView",
     "esri/layers/SceneLayer",
     "esri/layers/FeatureLayer",
-    "esri/widgets/Home",
 
     "esri/renderers/SimpleRenderer",
     "esri/symbols/MeshSymbol3D",
@@ -24,7 +23,7 @@ define([
     "dojo/dom-style",
 ], function (
     declare,
-    Map, SceneView, SceneLayer, FeatureLayer, Home,
+    Map, SceneView, SceneLayer, FeatureLayer,
     SimpleRenderer,
     MeshSymbol3D, FillSymbol3DLayer, Legend,
     dom, on, domStyle) {
@@ -96,6 +95,7 @@ define([
             )
             scene.add(this.buildingsLayer2);
 
+            // add water bodies with water renderer
             var waterBodies = new FeatureLayer({
                 url: 'https://services9.arcgis.com/ZpmTCcECcEOnkrrK/arcgis/rest/services/Zurich_Water_Bodies/FeatureServer', // water bodies
                 elevationInfo: {
@@ -145,11 +145,11 @@ define([
                     connect: "lower",
                     range: {
                         min: 1850,
-                        max: 2030
+                        max: 2015
                     },
                     pips: {
                         mode: 'values',
-                        values: [1850, 1900, 1920, 1940, 1960, 1980, 1990, 2000, 2005, 2010, 2015, 2030],
+                        values: [1850, 1900, 1920, 1940, 1960, 1980, 1990, 2000, 2005, 2010, 2015],
                         density: 50
                     },
                     format: wNumb({
@@ -202,7 +202,7 @@ define([
                         softSlider.noUiSlider.set(year);
                         this.timelineAnimation(year); // trigger timeline animation
                         year += 1; // increase year
-                        if (year === 2031) { year = 1850; } // make loop
+                        if (year === 2015) { year = 1850; } // make loop
                     }.bind(this), 1000);
 
                 }.bind(this));
