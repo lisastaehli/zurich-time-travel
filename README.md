@@ -1,6 +1,6 @@
 # Zurich Time Travel
 
-Live Demo: 
+Live Demo: [Zurich Time Travel](https://lisastaehli.github.io/zurich-time-travel/)
 
 ## About
 
